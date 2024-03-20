@@ -1,0 +1,30 @@
+package templates
+
+templ nav() {
+	<nav class="bg-amber-300 min-h-20">
+		<div class="flex flex-row h-full items-center w-full">
+			<img src="static/mercado-livre.png" alt="logo" class="w-44 h-11 mx-8"/>
+			<div class="w-full">
+				<form action="/products" method="get" class="relative block h-10 mb-0">
+					<input 
+						type="text" 
+						name="search"
+						placeholder="Buscar produtos, marcas e muito mais..." 
+						class="bg-white border-none shadow-md rounded-sm w-2/5"
+					/>
+					<button class="h-full bg-blue-900 rounded-sm border-none text-white px-4">Search</button>
+				</form>
+			</div>
+		</div>
+	</nav>
+}
+
+templ Layout(contents templ.Component) {
+	@Header()
+	<body class="flex flex-col h-full">
+	@nav()	
+	<main class="flex-1">	
+		@contents
+	</main>
+	</body>
+}
